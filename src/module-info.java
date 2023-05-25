@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Miukki
- *
- */
-module BikeApp {
-}
