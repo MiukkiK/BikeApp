@@ -1,12 +1,11 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BikeAppTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testMainMethod() {
+		BikeApp.main("src\\test\\resources\\test_20rows.csv");
 	}
 
 }
