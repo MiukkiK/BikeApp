@@ -2,8 +2,10 @@
 public class BikeApp {
 
 	public static void main(String... args) {
-		// TODO Auto-generated method stub
-
+		
+		BikeTrip[] bikeTrips = FileHandler.readTripsFromFile(args[0]);
+		System.out.println("Bike trips loaded from file.");
+		
 	}
 
 }

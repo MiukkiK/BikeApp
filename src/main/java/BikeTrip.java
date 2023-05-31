@@ -1,41 +1,41 @@
+import java.time.LocalDateTime;
+import java.lang.IllegalArgumentException;
+
 /**
  * Data class that contains the departure and return times and stations of a bike trip.
  * @author Mia Kallio
  *
  */
 public class BikeTrip {
-	String departureTime;
-	String departureDate;
+	LocalDateTime departureDateTime;
 	String departureStation;
 	int departureStationId;
-	String returnTime;
-	String returnDate;
+	LocalDateTime returnDateTime;
 	String returnStation;
 	int returnStationId;
+	int distance;
+	int duration;
 
 /**
  * Bike trip constructor from a String array of data
  * @param data Array of String to import.
  */
 	public BikeTrip (String[] data) {
-		String[] timeAndDate = data[0].split("T");
-		departureTime = timeAndDate[0];
-		departureDate = timeAndDate[1];
-		timeAndDate = data[1].split("T");
-		returnTime = timeAndDate[0];
-		returnDate = timeAndDate[1];
+		departureDateTime = LocalDateTime.parse(data[0]);
 		departureStationId = Integer.parseInt(data[2]);
 		departureStation = data[3];
+		returnDateTime = LocalDateTime.parse(data[1]);
 		returnStationId = Integer.parseInt(data[4]);
 		returnStation = data[5];
+		distance = Integer.parseInt(data[6]);
+		duration = Integer.parseInt(data[7]);
+		if ((distance < 10) || (duration < 10) || (departureStationId == 0) || (returnStationId == 0)) {
+			throw new IllegalArgumentException();
+		}
 	}
 	
-	public String getDepartureTime() {
-		return departureTime;
-	}
-	
-	public String getDepartureDate() {
-		return departureDate;
+	public LocalDateTime getDepartureDateTime() {
+		return departureDateTime;
 	}
 	
 	public String getDepartureStation() {
@@ -46,12 +46,8 @@ public class BikeTrip {
 		return departureStationId;
 	}
 	
-	public String getReturnTime() {
-		return returnTime;
-	}
-	
-	public String getReturnDate() {
-		return returnDate;
+	public LocalDateTime getReturnDateTime() {
+		return returnDateTime;
 	}
 	
 	public String getReturnStation() {
@@ -60,6 +56,14 @@ public class BikeTrip {
 	
 	public int getReturnStationId() {
 		return returnStationId;
+	}
+	
+	public int getDistance() {
+		return distance;
+	}
+	
+	public int getDuration() {
+		return duration;
 	}
 }
 	
